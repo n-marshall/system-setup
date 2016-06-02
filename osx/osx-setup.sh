@@ -29,6 +29,7 @@ brew cask install alfred iterm2 ngrok cyberduck google-chrome vagrant visual-stu
 brew install hg bzr
 brew tap caskroom/versions
 brew cask install java7
+brew cask install java
 clear
 
 echo "Installing Go..."
