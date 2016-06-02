@@ -28,7 +28,7 @@ echo "Installing Cask applications..."
 brew cask install alfred iterm2 ngrok cyberduck google-chrome vagrant visual-studio-code
 brew install hg bzr
 brew tap caskroom/versions
-brew cask info java8
+brew cask install java7
 clear
 
 echo "Installing Go..."
