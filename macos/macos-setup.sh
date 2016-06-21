@@ -20,6 +20,15 @@ echo "Installing basic stuff..."
 brew install gpg ruby python python3 git zsh wget
 clear
 
+echo "Installing zsh..."
+brew install zsh
+sudo tee -a /etc/shells > /dev/null <<EOL
+/usr/local/bin/zsh
+EOL
+chsh -s /usr/local/bin/zsh
+setopt interactivecomments
+clear
+
 echo "Installing Cask..."
 brew tap caskroom/cask
 clear
@@ -32,14 +41,21 @@ brew cask install java7
 brew cask install java
 clear
 
+echo "Setting common sh profile..."
+tee -a ~/.bash_profile > ~/.zshrc <<EOL
+source ~/.common_profile
+EOL
+clear
+
 echo "Installing Go..."
 brew install go --cross-compile-common
-tee -a ~/.bash_profile > /dev/null <<EOL
+tee -a ~/.common_profile > /dev/null <<EOL
 export GOPATH=\$HOME/dev/go
 export PATH=\$PATH:\$GOPATH/bin
 EOL
+clear
 
-source ~/.bash_profile
+source ~/.common_profile
 go get -u golang.org/x/tools/cmd/godoc
 #go get -u golang.org/x/tools/cmd/vet
 go get github.com/golang/lint/golint
@@ -58,8 +74,12 @@ brew cask install virtualbox
 brew cask install vagrant
 brew cask install vagrant-manager
 brew install docker
-brew install boot2docker
 brew install docker-compose
+
+tee -a ~/.common_profile > /dev/null <<EOL
+eval \$(docker-machine env default)
+EOL
+source ~/.common_profile
 clear
 
 echo "Installing RVM..."
@@ -109,5 +129,32 @@ Thumbs.db
 EOL
 git config --global core.excludesfile ~/.gitignore_global
 clear
+
+echo "Typeform specific stuff..."
+sudo tee -a /etc/hosts > /dev/null <<EOL
+192.168.33.11  admin.typeform.dev signup.typeform.dev login.typeform.dev api.typeform.dev billing.typeform.dev
+EOL
+clear
+
+echo "Setting aliases..."
+tee -a ~/.common_profile > /dev/null <<EOL
+alias ndr='cd ~/dev/go/src/github.com/Typeform/andorra'
+alias wrk='cd ~/dev/go/src/github.com/Typeform/workers'
+alias brn='cd ~/dev/go/src/github.com/Typeform/brownie'
+alias trm='cd ~/dev/go/src/github.com/Typeform/tiramisu'
+alias dcs='cd ~/dev/go/src/github.com/Typeform/api-docs'
+alias cddog='cd ~/dev/go/src/github.com/xsb/dog'
+alias xp='cd ~/dev/go/src/experiments'
+EOL
+source ~/.common_profile
+clear
+
+echo "Setting key repeat rate..."
+# normal minimum is 15 (225 ms)
+defaults write -g InitialKeyRepeat -int 10
+# normal minimum is 2 (30 ms)
+defaults write -g KeyRepeat -int 2
+clear
+
 
 
