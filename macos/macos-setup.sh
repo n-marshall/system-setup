@@ -23,10 +23,24 @@ clear
 echo "Installing zsh..."
 brew install zsh
 sudo tee -a /etc/shells > /dev/null <<EOL
+#----------------------------------------------------------------
+#
 /usr/local/bin/zsh
 EOL
 chsh -s /usr/local/bin/zsh
 setopt interactivecomments
+
+tee -a ~/.zshrc > /dev/null <<EOL
+#----------------------------------------------------------------
+#
+if [ -z "$HISTFILE" ]; then
+    HISTFILE=$HOME/.zsh_history
+fi
+
+HISTSIZE=10000
+SAVEHIST=10000
+EOL
+
 clear
 
 echo "Installing Cask..."
@@ -43,6 +57,8 @@ clear
 
 echo "Setting common sh profile..."
 tee -a ~/.bash_profile > ~/.zshrc <<EOL
+#----------------------------------------------------------------
+#
 source ~/.common_profile
 EOL
 clear
@@ -50,6 +66,8 @@ clear
 echo "Installing Go..."
 brew install go --cross-compile-common
 tee -a ~/.common_profile > /dev/null <<EOL
+#----------------------------------------------------------------
+#
 export GOPATH=\$HOME/dev/go
 export PATH=\$PATH:\$GOPATH/bin
 EOL
@@ -77,6 +95,8 @@ brew install docker
 brew install docker-compose
 
 tee -a ~/.common_profile > /dev/null <<EOL
+#----------------------------------------------------------------
+#
 eval \$(docker-machine env default)
 EOL
 source ~/.common_profile
@@ -89,6 +109,8 @@ clear
 
 echo "Configuring Git..."
 tee ~/.gitignore_global > /dev/null <<EOL
+#----------------------------------------------------------------
+#
 # Compiled source #
 ###################
 *.com
@@ -132,19 +154,26 @@ clear
 
 echo "Typeform specific stuff..."
 sudo tee -a /etc/hosts > /dev/null <<EOL
+#----------------------------------------------------------------
+#
 192.168.33.11  admin.typeform.dev signup.typeform.dev login.typeform.dev api.typeform.dev billing.typeform.dev
 EOL
 clear
 
 echo "Setting aliases..."
 tee -a ~/.common_profile > /dev/null <<EOL
+#----------------------------------------------------------------
+#
 alias ndr='cd ~/dev/go/src/github.com/Typeform/andorra'
 alias wrk='cd ~/dev/go/src/github.com/Typeform/workers'
 alias brn='cd ~/dev/go/src/github.com/Typeform/brownie'
 alias trm='cd ~/dev/go/src/github.com/Typeform/tiramisu'
 alias dcs='cd ~/dev/go/src/github.com/Typeform/api-docs'
-alias cddog='cd ~/dev/go/src/github.com/xsb/dog'
+alias dcs='cd ~/dev/go/src/github.com/Typeform/biscuit'
+alias cddog='cd ~/dev/go/src/github.com/dogtools/dog'
 alias xp='cd ~/dev/go/src/experiments'
+alias phx='cd ~/dev/typeform/phoenix-osx'
+alias docker-restart='docker-machine restart && eval $(docker-machine env)'
 EOL
 source ~/.common_profile
 clear
