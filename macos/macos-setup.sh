@@ -68,7 +68,7 @@ brew install go --cross-compile-common
 tee -a ~/.common_profile > /dev/null <<EOL
 #----------------------------------------------------------------
 #
-export GOPATH=\$HOME/dev/go
+export GOPATH=\$HOME/dev/.gopath:\$HOME/dev/go
 export PATH=\$PATH:\$GOPATH/bin
 EOL
 clear
