@@ -17,7 +17,7 @@ brew doctor
 clear
 
 echo "Installing basic stuff..." 
-brew install gpg ruby python python3 git zsh wget
+brew install gpg ruby python python3 git zsh wget graphviz
 clear
 
 echo "Installing zsh..."
