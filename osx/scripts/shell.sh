@@ -46,6 +46,13 @@ tee -a ~/.profile > /dev/null <<EOL
 alias cddog='cd ~/dev/go/src/github.com/dogtools/dog'
 alias xp='cd ~/dev/go/src/experiments'
 alias docker-restart='docker-machine restart && eval $(docker-machine env)'
+alias ls='ls -a'
+alias mkdir="mkdir -pv"
+alias wget="wget -c"
+alias histg="history | grep"
+alias echopath='echo $PATH | tr -s ":" "\n"'
+alias myip="curl http://ipecho.net/plain; echo"
+alias webify="mogrify -resize 690\> *.png"
 EOL
 source ~/.profile
 clear
