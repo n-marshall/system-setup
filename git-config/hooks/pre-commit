@@ -1,0 +1,3 @@
+source ./common/configs/.shell_functions
+
+pwd > ~/.wot
