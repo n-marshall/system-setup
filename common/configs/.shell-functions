@@ -1,0 +1,15 @@
+getAndAppend(){
+    # create file if doesn't exist, with right permission
+    [[ ! -s $2 ]] && touch "$2" || [[ ! -s $2 ]] && sudo touch "$2"
+    # append stuff to it
+    [[ ! -e $2 ]] || [[ -w $2 ]] && curl -sSL $1 >> $2 || [[ -e $2 ]] && [[ ! -w $2 ]] && curl -sSL $1 | sudo tee -a "$2" >/dev/null
+    [[ ! -e $2 ]] || [[ -w $2 ]] && printf "\n" >> $2 || [[ -e $2 ]] && [[ ! -w $2 ]] && sudo bash -c "printf \"\n\" >> $2"
+}
+
+append(){
+    # create file if doesn't exist, with right permission
+    [[ ! -s $2 ]] && touch "$2" || [[ ! -s $2 ]] && sudo touch "$2"
+    # append stuff to it
+    [[ ! -e $2 ]] || [[ -w $2 ]] && printf $1 >> $2 || [[ -e $2 ]] && [[ ! -w $2 ]] && sudo bash -c "printf $1 >> $2"
+    [[ ! -e $2 ]] || [[ -w $2 ]] && printf "\n" >> $2 || [[ -e $2 ]] && [[ ! -w $2 ]] && sudo bash -c "printf \"\n\" >> $2"
+}
