@@ -1,3 +1,3 @@
-source ./common/configs/.shell_functions
-
-pwd > ~/.wot
+pwd > ~/.wot 
+cat ~/.wot 
+source ./common/configs/.shell-functions
