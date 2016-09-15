@@ -1,3 +1,6 @@
-pwd > ~/.wot 
-cat ~/.wot 
 source ./common/configs/.shell-functions
+
+cp ./common/configs/.gitignore_global ~/.gitignore_global
+cp ./common/configs/.tmux.conf ~/.tmux.conf
+cp ./common/configs/.bashrc ~/.bashrc
+cp ./common/configs/.zshrc ~/.zshrc
