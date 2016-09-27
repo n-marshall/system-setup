@@ -1,0 +1,1 @@
+[[ -s "$HOME/.profile_keys" ]] && source "$HOME/.profile_keys" # Load the default .profile_keys

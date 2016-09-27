@@ -1,0 +1,1 @@
+alias docker-restart='docker-machine restart && eval $(docker-machine env)'

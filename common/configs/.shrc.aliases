@@ -1,0 +1,10 @@
+alias ls='ls -a'
+alias mkdir="mkdir -pv"
+alias wget="wget -c"
+alias histg="history | grep"
+alias echopath='echo $PATH | tr -s ":" "\n"'
+alias myip="curl -sSL http://ipecho.net/plain | xargs echo"
+alias webpic="mogrify -resize 690\> *.png"
+
+alias cddog='cd ~/dev/go/src/github.com/dogtools/dog'
+alias xp='cd ~/dev/go/src/experiments'
