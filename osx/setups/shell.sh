@@ -5,6 +5,7 @@ sudo tee -a /etc/shells > /dev/null <<EOL
 #
 /usr/local/bin/zsh
 EOL
+append "/usr/local/bin/zsh" /etc/shells
 chsh -s /usr/local/bin/zsh
 setopt interactivecomments
 
