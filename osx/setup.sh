@@ -1,8 +1,6 @@
 #!/bin/sh
 read -p "Are you sure you want to run this installation script ? Press [Enter] for yes"
 
-source ./scripts/helper-functions.sh
-
 echo "Installing XCode CLT..."
 xcode-select --install
 read -p "Press [Enter] key to once CLT finished..."
@@ -15,15 +13,16 @@ echo "Installing Homebrew..."
 brew doctor
 clear
 
+source ../common/configs/.shell-functions
+
 source ./scripts/shell.sh
 source ./scripts/git.sh
 source ./scripts/go.sh
-
 source ./scripts/text-editor.sh
 source ./scripts/docker-&-vms.sh
 source ./scripts/settings.sh
 
-echo "Installing basic stuff..." 
+echo "Installing basic stuff..."
 brew install gpg python python3 wget graphviz
 clear
 
