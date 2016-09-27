@@ -1,6 +1,24 @@
+#!/bin/bash
 source ./common/configs/.shell-functions
 
 cp ./common/configs/.gitignore_global ~/.gitignore_global
 cp ./common/configs/.tmux.conf ~/.tmux.conf
 cp ./common/configs/.bashrc ~/.bashrc
 cp ./common/configs/.zshrc ~/.zshrc
+
+> ~/.shrc
+catAndAppend ./common/configs/.shrc.aliases ~/.shrc
+catAndAppend ./common/configs/.shrc.keys ~/.shrc
+catAndAppend ./common/configs/.shrc.gopath ~/.shrc
+
+if [[ "$(uname)" == 'Darwin' ]]; then
+    appendIfMissing ./common/configs/.shrc.aliases ~/.pipo
+    catAndAppend ./osx/configs/.shrc.aliases ~/.shrc
+    catAndAppend ./osx/configs/.shrc.docker ~/.shrc
+    catAndAppend ./osx/configs/.shrc.tmux ~/.shrc
+    catAndAppend ./osx/configs/.shrc.typeform ~/.shrc
+elif [[ "$(uname)" == 'Linux' ]]; then
+    echo 'Linux'
+fi
+
+# python ./common/configs/appendIfMissing.py "fjklsjdkfl" "fdshjkhjlghjgksjkhsdkjhsdkjhsd"
