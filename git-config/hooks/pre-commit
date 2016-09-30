@@ -7,18 +7,16 @@ cp ./common/configs/.bashrc ~/.bashrc
 cp ./common/configs/.zshrc ~/.zshrc
 
 > ~/.shrc
-catAndAppend ./common/configs/.shrc.aliases ~/.shrc
-catAndAppend ./common/configs/.shrc.keys ~/.shrc
-catAndAppend ./common/configs/.shrc.gopath ~/.shrc
+appendIfMissing ./common/configs/.shrc.aliases ~/.shrc
+appendIfMissing ./common/configs/.shrc.keys ~/.shrc
+appendIfMissing ./common/configs/.shrc.gopath ~/.shrc
 
 if [[ "$(uname)" == 'Darwin' ]]; then
     appendIfMissing ./common/configs/.shrc.aliases ~/.pipo
-    catAndAppend ./osx/configs/.shrc.aliases ~/.shrc
-    catAndAppend ./osx/configs/.shrc.docker ~/.shrc
-    catAndAppend ./osx/configs/.shrc.tmux ~/.shrc
-    catAndAppend ./osx/configs/.shrc.typeform ~/.shrc
+    appendIfMissing ./osx/configs/.shrc.aliases ~/.shrc
+    appendIfMissing ./osx/configs/.shrc.docker ~/.shrc
+    appendIfMissing ./osx/configs/.shrc.tmux ~/.shrc
+    appendIfMissing ./osx/configs/.shrc.typeform ~/.shrc
 elif [[ "$(uname)" == 'Linux' ]]; then
     echo 'Linux'
 fi
-
-# python ./common/configs/appendIfMissing.py "fjklsjdkfl" "fdshjkhjlghjgksjkhsdkjhsdkjhsd"
