@@ -5,5 +5,5 @@ brew cask install vagrant-manager
 brew install docker
 brew install docker-compose
 
-catAndAppend ../configs/.shrc.docker ~/.shrc
+appendIfMissing ../configs/.shrc.docker ~/.shrc
 clear
