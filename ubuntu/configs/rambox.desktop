@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=$HOME/.local/share/rambox/linux-unpacked/Rambox
+Name=Rambox
+Icon=$HOME/Téléchargements/Icon.icns_512x512.png
+Categories=Messaging
