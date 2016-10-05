@@ -35,19 +35,6 @@ else
     printf "There is already a file at ~/.dev : skipping\n"
 fi
 
-# mkdir Développement 
-# mkdir .dev
-# mkdir Documents
-# mkdir Films\ et\ Séries
-# mkdir Graphisme
-# mkdir Livres
-# mkdir logiciels_windows/installeurs
-# mkdir logiciels_windows/portables
-# mkdir Musique
-# mkdir Photos
-# mkdir photos_autres
-# mkdir Téléchargements
-
 
 
 
