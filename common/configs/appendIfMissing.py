@@ -29,7 +29,7 @@ def isSourceContentsInDestFile(sourcePath, destFileFullPath, sourceType):
         print 'file is empty'
 
 
-def append(source, destFileFullPath, sourceType):
+def append(source, destFileFullPath, sourceType, repoPath):
     if sourceType == SOURCE_TYPE_URL:
         appendFunction = 'appendFromURL'
     elif sourceType == SOURCE_TYPE_FILE:
@@ -37,11 +37,13 @@ def append(source, destFileFullPath, sourceType):
     elif sourceType == SOURCE_TYPE_STRING:
         appendFunction = 'appendFromString'
 
-    command = ' '.join(['source', './common/configs/.shell-functions', '&&', appendFunction, source, destFileFullPath])
+    shellFunctionsFilePath = ''.join([repoPath, '/common/configs/.shell-functions.sh'])
+    command = ' '.join([ '.', shellFunctionsFilePath, '&&', appendFunction, source, destFileFullPath])
+    print command
     os.system(command)
 
 
-def appendIfMissing(source, dest):
+def appendIfMissing(source, dest, repoPath):
     if re.match(URL_REGEX, source, flags=0):
         sourceType = SOURCE_TYPE_URL
     elif os.path.isfile(source):
@@ -55,14 +57,14 @@ def appendIfMissing(source, dest):
             print ('Source\'s contents found in dest file, no need to append')
         else:
             print('Source\'s contents cannot be found in dest file, appending...')
-            append(source, destFileFullPath, sourceType)
+            append(source, destFileFullPath, sourceType, repoPath)
 
     else:
         print "destfile not a file yet, copying sourcefile to destfile..."
-        append(source, destFileFullPath, sourceType)
+        append(source, destFileFullPath, sourceType, repoPath)
 
 
-if len(sys.argv) != 3:
+if len(sys.argv) != 4:
     sys.exit('[ERROR] appendIfMissing.py, line 31: number of arguments passed is not 3')
 else:
-    appendIfMissing(sys.argv[1], sys.argv[2])
+    appendIfMissing(sys.argv[1], sys.argv[2], sys.argv[3])
