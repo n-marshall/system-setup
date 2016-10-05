@@ -75,6 +75,7 @@ After=multi-user.target
 Type=idle
 ExecStart=sh /etc/onboot
 . "$DIR"/setups/vcs.sh
+. "$DIR"/setups/vscode.sh
 
 [Install]
 WantedBy=multi-user.target
