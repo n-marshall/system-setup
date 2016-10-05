@@ -10,19 +10,8 @@ then
     exit 1
 fi
 
-################
-
-# SHARED FUNCTIONS
-
-function wgetAndDpkg() {
-	cd ~
-	URL=$1
-	FILE=`mktemp`
-	wget "$URL" -O $FILE && sudo dpkg -i $FILE	
-	rm $FILE
-}
-
-
+. "$REPO"/common/configs/.shell-functions
+. "DIR"/configs/shell-functions.sh
 
 
 #################
