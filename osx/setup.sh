@@ -1,4 +1,5 @@
-#!/bin/sh
+[[ -z $repo ]] && repo=$(cd .. && pwd)
+
 read -p "Are you sure you want to run this installation script ? Press [Enter] for yes"
 
 echo "Installing XCode CLT..."
@@ -21,6 +22,7 @@ source ./scripts/go.sh
 source ./scripts/text-editor.sh
 source ./scripts/docker-&-vms.sh
 source ./scripts/settings.sh
+source ${repo}/osx/setups/karabiner-elements.sh
 
 echo "Installing basic stuff..."
 brew install gpg python python3 wget graphviz
