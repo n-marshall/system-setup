@@ -50,6 +50,7 @@ After=multi-user.target
 [Service]
 Type=idle
 ExecStart=sh /etc/onboot
+. "$DIR"/setups/settings.sh
 . "$DIR"/setups/vcs.sh
 . "$DIR"/setups/vscode.sh
 
