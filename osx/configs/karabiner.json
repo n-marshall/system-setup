@@ -4,7 +4,7 @@
             "name": "Default profile",
             "selected": true,
             "simple_modifications": {
-                "left_control": "left_gui"
+                "fn": "left_command"
             }
         }
     ]
