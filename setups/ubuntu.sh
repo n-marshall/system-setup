@@ -1,7 +1,5 @@
 #!/bin/bash
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-REPO="$DIR"/..
-cd ~
+[[ -z $repo ]] && repo=$(cd $(dirname $BASH_SOURCE[0]) && cd .. && pwd)
 
 # prompt before starting
 read -p "Are you sure you want to run this install script ? " -n 1 -r
@@ -11,8 +9,8 @@ then
     exit 1
 fi
 
-. "$REPO"/common/configs/.shell-functions
-. "DIR"/configs/shell-functions.sh
+. "${repo}"/configs/shell-functions.sh
+. "${repo}"/configs/ubuntu/shell-functions.sh
 
 
 #################
@@ -43,11 +41,13 @@ fi
 
 # INSTALLERS
 
-. "$DIR"/setups/rambox.sh
-. "$DIR"/setups/settings.sh
-. "$DIR"/setups/vcs.sh
-. "$DIR"/setups/vscode.sh
+# python-pip
+sudo apt-get install -y python-pip
 
+. "${repo}"/setups/ubuntu/rambox.sh
+. "${repo}"/setups/ubuntu/vcs.sh
+. "${repo}"/setups/ubuntu/settings.sh
+. "${repo}"/setups/ubuntu/vscode.sh
 
 
 #oh-my-zsh
@@ -85,8 +85,6 @@ export PATH=$GOPATH/bin:$PATH
 
 EOF
 
-# python-pip
-sudo apt-get install -y python-pip
 
 # ruby
 sudo apt-get install -y ruby-full

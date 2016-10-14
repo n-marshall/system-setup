@@ -1,8 +1,8 @@
-if [ -z ${repo+x} ];then repo="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd ../.. && pwd )"; fi
-echo "${repo}"
+#!/bin/bash
+[[ -z $repo ]] && repo=$(cd $(dirname $BASH_SOURCE[0]) && cd ../.. && pwd)
 
-. "${repo}"/common/configs/.shell-functions.sh
-. "${repo}"/ubuntu/configs/shell-functions.sh
+. "${repo}"/configs/shell-functions.sh
+. "${repo}"/configs/ubuntu/shell-functions.sh
 
 LATEST="0.4.4"
 URL="https://github.com/saenzramiro/rambox/releases/download/${LATEST}/Rambox-${LATEST}-x64.zip"

@@ -1,5 +1,5 @@
-# DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-# . "$DIR"/../configs/shell-functions.sh
+#!/bin/bash
+[[ -z $repo ]] && repo=$(cd $(dirname $BASH_SOURCE[0]) && cd ../.. && pwd)
 
 # getAndUnzip 'https://az764295.vo.msecnd.net/public/0.10.1-release/VSCode-linux64.zip' ~/woohoo/vscode
 

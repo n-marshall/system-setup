@@ -37,7 +37,7 @@ def append(source, destFileFullPath, sourceType, repoPath):
     elif sourceType == SOURCE_TYPE_STRING:
         appendFunction = 'appendFromString'
 
-    shellFunctionsFilePath = ''.join([repoPath, '/common/configs/.shell-functions.sh'])
+    shellFunctionsFilePath = ''.join([repoPath, '/configs/shell-functions.sh'])
     command = ' '.join([ '.', shellFunctionsFilePath, '&&', appendFunction, source, destFileFullPath])
     print command
     os.system(command)
