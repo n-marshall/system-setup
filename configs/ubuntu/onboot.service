@@ -1,0 +1,10 @@
+[Unit]
+Description=Runs on boot
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=sh /etc/onboot
+
+[Install]
+WantedBy=multi-user.target
