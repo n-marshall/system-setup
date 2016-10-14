@@ -1,0 +1,3 @@
+alias setclip='xclip -selection c'
+alias getclip='xclip -selection clipboard -o'
+alias godir='cd ~/dev/go/src'
