@@ -4,10 +4,7 @@
 # prompt before starting
 read -p "Are you sure you want to run this install script ? " -n 1 -r
 echo    # (optional) move to a new line
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-    exit 1
-fi
+if [[ ! $REPLY =~ ^[Yy]$ ]] && exit 1
 
 . "${repo}"/configs/shell-functions.sh
 . "${repo}"/configs/ubuntu/shell-functions.sh
@@ -17,24 +14,11 @@ fi
 
 # FILES AND FOLDERS
 
-cd ~
-declare -a arr=("Développement" "Documents" "Films et Séries" "Graphisme" "Livres" "logiciels_windows/installeurs" "logiciels_windows/portables" "Musique" "Photos" "photos_autres" "Téléchargements")
+declare -a arr=("dev" "Documents" "Movies & Shows" "Graphism" "Books" "Windows/installers" "Windows/portable" "Music" "Photos" "photos_autres" "downloads")
 for i in "${arr[@]}"
 do
-    if [ ! -d "$i" ]; then
-        mkdir "$i"
-    else
-        printf "Directory %s already exists : skipping\n" "$i"
-    fi
+    mkdir -p ${HOME}/"$i"
 done
-
-if [ ! -e ~/.dev ]; then
-    ln -s ~/.dev ~/Développement
-else
-    printf "There is already a file at ~/.dev : skipping\n"
-fi
-
-
 
 
 #################
@@ -50,15 +34,14 @@ sudo apt-get install -y python-pip
 . "${repo}"/setups/ubuntu/vscode.sh
 
 
-#oh-my-zsh
+# zsh
 sudo apt-get install -y zsh
 zsh --version
 chsh -s $(which zsh)
+# oh-my-zsh
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ## source bashrc and profile
-sudo touch /etc/commonprofile
 sudo tee -a ~/.bashrc > ~/.zshrc <<'EOF'
-#source common shell profile
 source /etc/commonprofile
 EOF
 
@@ -306,8 +289,7 @@ EOF
 # qwertified   fr: French (your comment here) 
 # EOF
 ## reload
-cd /var/lib/xkb/
-rm *.xkm
+rm /var/lib/xkb/*.xkm
 exit
 
 
@@ -435,7 +417,7 @@ sudo tee -a /etc/commonprofile > /dev/null <<'EOF'
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
 
-alias godir='cd ~/.dev/Go/src'
+alias godir='cd ~/dev/go/src'
 
 EOF
 
