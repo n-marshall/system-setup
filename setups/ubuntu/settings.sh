@@ -9,4 +9,4 @@ sudo chmod 644 /lib/systemd/system/onboot.service
 sudo systemctl daemon-reload
 sudo systemctl enable onboot.service
 
-appendIfMissing 
+appendIfMissing "${repo}"/configs/ubuntu/.Xmodmap ~/.Xmodmap
