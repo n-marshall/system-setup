@@ -68,38 +68,6 @@ sudo add-apt-repository -y ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install oracle-java7-installer oracle-java7-set-default
 
-# sublime
-sudo add-apt-repository -y ppa:webupd8team/sublime-text-3
-sudo apt-get update
-sudo apt-get install -y sublime-text-installer
-## sublime packages
-### package control
-wget https://sublime.wbond.net/Package%20Control.sublime-package -P ~/.config/sublime-text-3/Installed\ Packages --no-check-certificate
-### install other packages
-sudo cat > ~/.config/sublime-text-3/Packages/User/Package Control.sublime-settings <<EOL
-{
-    "installed_packages":
-    [
-        "Bash Build System",
-        "Emmet",
-        "GoImports",
-        "GoSublime",
-        "HTML-CSS-JS Prettify"
-    ]
-}
-
-EOL
-### gosublime settings
-sudo cat > ~/.config/sublime-text-3/Packages/User/GoSublime.sublime-settings <<EOL
-{
-    "env": {"GOPATH": "/home/nicolas/.go:/home/nicolas/.dev/Go", "PATH": "$GOPATH/bin:$PATH" },
-    "fmt_cmd": ["goimports"]
-}
-
-EOL
-
-
-
 #gitkraken
 wgetAndDpkg 'https://release.gitkraken.com/linux/gitkraken-amd64.deb'
 
