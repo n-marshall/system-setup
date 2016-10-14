@@ -85,41 +85,11 @@ sudo add-apt-repository -y ppa:deluge-team/ppa
 sudo apt-get update
 sudo apt-get install -y deluge
 ## associate magnet links
-sudo tee /usr/share/applications/deluge.desktop > /dev/null <<'EOF'
-[Desktop Entry]
-Version=1.0
-Name=Deluge
-GenericName=BitTorrent Client
-X-GNOME-FullName=Deluge BitTorrent Client
-Comment=Download and share files over BitTorrent
-TryExec=deluge-gtk
-Exec=deluge-gtk %U
-Icon=deluge
-Terminal=false
-Type=Application
-Categories=Network;FileTransfer;P2P;GTK
-StartupNotify=true
-MimeType=application/x-bittorrent;x-scheme-handler/magnet;
-EOF
+appendIfMissing "${repo}"/configs/ubuntu/deluge.desktop /usr/share/applications/deluge.desktop
 gvfs-mime --set x-scheme-handler/magnet deluge.desktop
 sudo update-desktop-database
 ## add autostart desktop file
-sudo tee ~/.config/autostart/deluge.desktop > /dev/null <<'EOF'
-[Desktop Entry]
-Version=1.0
-Name=Deluge
-GenericName=BitTorrent Client
-X-GNOME-FullName=Deluge BitTorrent Client
-Comment=Download and share files over BitTorrent
-TryExec=deluge-gtk
-Exec=deluge-gtk %U
-Icon=deluge
-Terminal=false
-Type=Application
-Categories=Network;FileTransfer;P2P;GTK
-StartupNotify=true
-MimeType=application/x-bittorrent;x-scheme-handler/magnet;
-EOF
+appendIfMissing "${repo}"/configs/ubuntu/deluge.desktop ~/.config/autostart/deluge.desktop
 # ## add to onboot file (disabled until useful)
 # sudo tee -a /etc/onboot > /dev/null <<'EOF'
 # nohup deluge-gtk &
