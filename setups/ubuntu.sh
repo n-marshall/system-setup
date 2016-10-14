@@ -10,24 +10,11 @@ if [[ ! $REPLY =~ ^[Yy]$ ]] && exit 1
 . "${repo}"/configs/ubuntu/shell-functions.sh
 
 
-#################
-
-# FILES AND FOLDERS
-
-declare -a arr=("dev" "Documents" "Movies & Shows" "Graphism" "Books" "Windows/installers" "Windows/portable" "Music" "Photos" "photos_autres" "downloads")
-for i in "${arr[@]}"
-do
-    mkdir -p ${HOME}/"$i"
-done
-
-
-#################
-
-# INSTALLERS
 
 # python-pip
 sudo apt-get install -y python-pip
 
+. "${repo}"/setups/ubuntu/dir_structure.sh
 . "${repo}"/setups/ubuntu/rambox.sh
 . "${repo}"/setups/ubuntu/vcs.sh
 . "${repo}"/setups/ubuntu/settings.sh
