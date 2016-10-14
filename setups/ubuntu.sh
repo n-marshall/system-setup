@@ -206,43 +206,7 @@ exit
 #xbindkeys
 sudo apt-get -y install xbindkeys xvkbd
 ## ctrl-alt as altgr alias
-cat > ~/.xbindkeysrc <<EOL
-"xvkbd -xsendevent -text '&'"
-    m:0x1c + c:10
-
-"xvkbd -xsendevent -text '~'"
-    m:0x1c + c:11
-
-"xvkbd -xsendevent -text '#'"
-    m:0x1c + c:12
-
-"xvkbd -xsendevent -text '{'"
-    m:0x1c + c:13
-
-"xvkbd -xsendevent -text '['"
-    m:0x1c + c:14
-
-"xvkbd -xsendevent -text '|'"
-    m:0x1c + c:15
-
-"xvkbd -xsendevent -text '\`'"
-    m:0x1c + c:16
-
-"xvkbd -xsendevent -text '\[backslash]'"
-    m:0x1c + c:17
-
-"xvkbd -xsendevent -text '^'"
-    m:0x1c + c:18
-
-"xvkbd -xsendevent -text '@'"
-    m:0x1c + c:19
-
-"xvkbd -xsendevent -text ']'"
-    m:0x1c + c:20
-
-"xvkbd -xsendevent -text '}'"
-    m:0x1c + c:21
-EOL
+appendIfMissing "${repo}"/configs/ubuntu/.xbindkeysrc ~/.xbindkeysrc
 ## reload xbindkeys
 xbindkeys -f ~/.xbindkeysrc
 
