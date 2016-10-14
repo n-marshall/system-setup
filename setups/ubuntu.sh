@@ -90,10 +90,6 @@ gvfs-mime --set x-scheme-handler/magnet deluge.desktop
 sudo update-desktop-database
 ## add autostart desktop file
 appendIfMissing "${repo}"/configs/ubuntu/deluge.desktop ~/.config/autostart/deluge.desktop
-# ## add to onboot file (disabled until useful)
-# sudo tee -a /etc/onboot > /dev/null <<'EOF'
-# nohup deluge-gtk &
-# EOF
 
 # beets
 pip install beets
@@ -117,17 +113,9 @@ sudo apt-get install -y android-studio
 
 # multi-tab explorer + command
 
-#gdevilspie
-# sudo apt-get install -y gdevilspie #until proven useful
-
 # mitmproxy / bettercap
 pip install mitmproxy
 gem install bettercap
-
-# f.lux (doesn't work on ubuntu)
-# sudo add-apt-repository -y ppa:kilian/f.lux
-# sudo apt-get update
-# sudo apt-get install -y fluxgui
 
 # redshift
 sudo apt-get update
@@ -162,27 +150,11 @@ wgetAndDpkg "https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.d
 ## otto / azk
 wget -nv http://azk.io/install.sh -O- -t 2 -T 10 | sh
 
-# shashlik
-wgetAndDpkg "http://static.davidedmundson.co.uk/shashlik/shashlik_0.9.3.deb"
-
-# boomaga printer
-# sudo add-apt-repository -y ppa:boomaga/ppa
-# sudo apt-get update
-# sudo apt-get install boomaga
-
 # mupdf
 sudo apt-get install -y mupdf
 
-#wkhtmltopdf
-sudo add-apt-repository -y ppa:ecometrica/servers
-sudo apt-get update
-sudo apt-get install -y wkhtmltopdf
-
 # cups pdf printer
 sudo apt-get install cups
-
-# html-pdf
-sudo npm install -g html-pdf
 
 
 
