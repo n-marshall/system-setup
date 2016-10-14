@@ -74,16 +74,7 @@ cd ~
 wget "https://storage.googleapis.com/golang/go$GOLANG_LATEST.linux-amd64.tar.gz" #replace with any newer version of go
 sudo tar -C /usr/local -xzf "go$GOLANG_LATEST.linux-amd64.tar.gz"
 rm "go$GOLANG_LATEST.linux-amd64.tar.gz"
-## add variables to path
-sudo tee -a /etc/commonprofile > /dev/null <<'EOF'
-# set GOROOT
-export GOROOT=/usr/local/go
-export PATH=$GOROOT/bin:$PATH
-# set GOPATH
-export GOPATH=$HOME/.go:$HOME/.dev/Go
-export PATH=$GOPATH/bin:$PATH
 
-EOF
 
 
 # ruby
