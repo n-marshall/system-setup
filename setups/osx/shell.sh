@@ -26,3 +26,6 @@ brew install tmux
 appendIfMissing configs/.shrc.tmux ~/.shrc
 source ~/.profile
 clear
+
+# xcode
+xcode-select --install
