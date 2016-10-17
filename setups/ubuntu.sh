@@ -12,9 +12,9 @@ if [[ ! $REPLY =~ ^[Yy]$ ]] && exit 1
 
 
 
-. "${repo}"/setups/ubuntu/programming_languages.sh
+. "${repo}"/setups/ubuntu/programming-languages.sh
 
-. "${repo}"/setups/ubuntu/dir_structure.sh
+. "${repo}"/setups/ubuntu/dir-structure.sh
 . "${repo}"/setups/ubuntu/rambox.sh
 . "${repo}"/setups/ubuntu/vcs.sh
 . "${repo}"/setups/ubuntu/settings.sh
