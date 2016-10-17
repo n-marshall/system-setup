@@ -2,11 +2,20 @@ installDmgFromUrl() {
     URL=$1
     dmg=$(mktemp)
     wget -O ${dmg} $URL
-    volumeName=$(openssl rand -hex 16)
-    hdiutil attach ${dmg} -mountpoint /Volumes/${volumeName}
-    cd /Volumes/${volumeName}
+    mountPoint=/Volumes/$(openssl rand -hex 16)
+    echo ${mountPoint}
+    hdiutil attach ${dmg} -mountpoint ${mountPoint}
+    cd ${mountPoint}
+
+    # install any .pkg
     sudo installer -pkg $(find *.pkg) -target "/"
-    hdiutil detach /Volumes/${volumeName}
+
+    # install any .app
+    for app in $(find ${mountPoint} -type d -maxdepth 2 -name \*.app); do
+        cp -a ${app} /Applications/
+    done
+
+    hdiutil detach ${mountPoint}
     rm ${dmg}
 }
 
