@@ -7,7 +7,7 @@ wgetAndDpkg() {
 	cd ~
 	URL=$1
 	FILE=`mktemp`
-	wget "$URL" -O $FILE && sudo dpkg -i $FILE	
+	wget "$URL" -O $FILE && sudo dpkg -i --force-depends $FILE	
 	rm $FILE
 }
 
