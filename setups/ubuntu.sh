@@ -4,9 +4,9 @@
 # prompt before starting
 read -p "Are you sure you want to run this install script ? " -n 1 -r
 echo    # (optional) move to a new line
-if [[ ! $REPLY =~ ^[Yy]$ ]] && exit 1
+[[ ! $REPLY =~ ^[Yy]$ ]] && exit 1
 
-# load common functions
+# import libraries
 . "${repo}"/configs/shell-functions.sh
 . "${repo}"/configs/ubuntu/shell-functions.sh
 
