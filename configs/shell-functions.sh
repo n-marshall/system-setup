@@ -26,8 +26,8 @@ appendFromFile(){
 }
 
 appendIfMissing(){
-    if [ -z ${repo+x} ];then repo="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd ../.. && pwd )"; fi
-    python "${repo}"/common/configs/appendIfMissing.py $1 $2 "${repo}"
+    [[ -z $repo ]] && repo=$(cd $(dirname $BASH_SOURCE[0]) && cd .. && pwd)
+    python "${repo}"/configs/appendIfMissing.py $1 $2
 }
 
 
