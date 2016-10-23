@@ -1,0 +1,5 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    { "key": "ctrl+alt+o",                "command": "workbench.action.files.openFile" },
+    { "key": "ctrl+o",                    "command": "workbench.action.files.openFolder" }
+]
