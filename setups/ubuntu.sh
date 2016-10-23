@@ -12,6 +12,7 @@ echo    # (optional) move to a new line
 
 
 
+. "${repo}"/setups/ubuntu/shells.sh
 . "${repo}"/setups/ubuntu/programming-languages.sh
 
 . "${repo}"/setups/ubuntu/dir-structure.sh
@@ -19,6 +20,5 @@ echo    # (optional) move to a new line
 . "${repo}"/setups/ubuntu/vcs.sh
 . "${repo}"/setups/ubuntu/settings.sh
 . "${repo}"/setups/ubuntu/vscode.sh
-. "${repo}"/setups/ubuntu/shells.sh
 . "${repo}"/setups/ubuntu/virtualization.sh
 . "${repo}"/setups/ubuntu/applications.sh
