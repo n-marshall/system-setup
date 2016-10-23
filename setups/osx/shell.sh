@@ -20,12 +20,3 @@ echo "Setting aliases..."
 appendIfMissing ../common/configs/.shrc.aliases ~/.shrc
 source ~/.profile
 clear
-
-echo "Installing tmux"
-brew install tmux
-appendIfMissing configs/.shrc.tmux ~/.shrc
-source ~/.profile
-clear
-
-# xcode
-xcode-select --install

@@ -2,7 +2,6 @@
 source ./common/configs/.shell-functions
 
 appendIfMissing ./common/configs/.gitignore_global ~/.gitignore_global
-appendIfMissing ./common/configs/.tmux.conf ~/.tmux.conf
 appendIfMissing ./common/configs/.bashrc ~/.bashrc
 appendIfMissing ./common/configs/.zshrc ~/.zshrc
 
@@ -13,7 +12,6 @@ appendIfMissing ./common/configs/.shrc.gopath ~/.shrc
 if [[ "$(uname)" == 'Darwin' ]]; then
     appendIfMissing ./osx/configs/.shrc.aliases ~/.shrc
     appendIfMissing ./osx/configs/.shrc.docker ~/.shrc
-    appendIfMissing ./osx/configs/.shrc.tmux ~/.shrc
     appendIfMissing ./osx/configs/.shrc.typeform ~/.shrc
     appendIfMissing ./osx/configs/.bash_profile ~/.bash_profile
 elif [[ "$(uname)" == 'Linux' ]]; then
