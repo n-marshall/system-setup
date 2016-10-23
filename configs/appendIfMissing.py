@@ -5,7 +5,7 @@ URL_REGEX = r'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a
 SOURCE_TYPE_URL = 'URL'
 SOURCE_TYPE_FILE = 'file'
 SOURCE_TYPE_STRING = 'string'
-APPEND_COMMAND = 'bash -c \'. {}/configs/shell-functions.sh && {} {} {}\''
+APPEND_COMMAND = 'zsh -c \'. {}/configs/shell-functions.sh && {} \"{}\" {}\''
 
 def isSourceContentsInDestFile(sourcePath, destFileFullPath, sourceType):
     if sourceType == SOURCE_TYPE_URL:
@@ -18,7 +18,6 @@ def isSourceContentsInDestFile(sourcePath, destFileFullPath, sourceType):
     print destFileFullPath
     if os.path.isfile(destFileFullPath) and os.stat(destFileFullPath).st_size != 0:
         with open(destFileFullPath) as destFile:
-            print destFile.read()
             destFileAccess = mmap.mmap(destFile.fileno(), 0, access=mmap.ACCESS_READ)
             if destFileAccess.find(sourceContents) != -1:
                 return True
