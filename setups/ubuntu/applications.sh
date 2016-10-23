@@ -1,5 +1,12 @@
+#!/bin/bash
+[[ -z $repo ]] && repo=$(cd $(dirname $BASH_SOURCE[0]) && cd ../.. && pwd)
+
+. "${repo}"/configs/shell-functions.sh
+. "${repo}"/configs/ubuntu/shell-functions.sh
+
 #chrome
-wgetAndDpkg 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+# wgetAndDpkg 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+sudo apt-get install -y google-chrome-stable
 ## make default browser
 sudo update-alternatives --set x-www-browser /usr/bin/google-chrome-stable #apparently not working
 
