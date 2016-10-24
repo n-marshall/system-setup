@@ -1,4 +1,5 @@
-[[ -z $repo ]] && repo=$(cd .. && pwd)
+#!/bin/bash
+[[ -z $repo ]] && repo=$(cd $(dirname $BASH_SOURCE[0]) && cd .. && pwd)
 
 read -p "Are you sure you want to run this installation script ? Press [Enter] for yes"
 
@@ -7,22 +8,22 @@ xcode-select --install
 read -p "Press [Enter] key to once CLT finished..."
 clear
 
-source ./scripts/ruby.sh
+. ./scripts/ruby.sh
 
 echo "Installing Homebrew..."
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew doctor
 clear
 
-source ../common/configs/.shell-functions
+. ../common/configs/.shell-functions
 
-source ./scripts/shell.sh
-source ./scripts/git.sh
-source ./scripts/go.sh
-source ./scripts/text-editor.sh
-source ./scripts/docker-&-vms.sh
-source ./scripts/settings.sh
-source ${repo}/osx/setups/karabiner-elements.sh
+. ./scripts/shell.sh
+. ./scripts/git.sh
+. ./scripts/go.sh
+. ./scripts/text-editor.sh
+. ./scripts/docker-&-vms.sh
+. ./scripts/settings.sh
+. ${repo}/osx/setups/karabiner-elements.sh
 
 echo "Installing basic stuff..."
 brew install gpg python python3 wget graphviz
