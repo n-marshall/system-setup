@@ -4,7 +4,6 @@
 . "${repo}"/configs/shell-functions.sh
 
 appendIfMissing "${repo}"/configs/.gitignore_global ~/.gitignore_global
-appendIfMissing "${repo}"/configs/.tmux.conf ~/.tmux.conf
 appendIfMissing "${repo}"/configs/.bashrc ~/.bashrc
 appendIfMissing "${repo}"/configs/.zshrc ~/.zshrc
 
@@ -16,7 +15,6 @@ appendIfMissing "${repo}"/configs/.shrc.gopath ~/.shrc
 if [[ "$(uname)" == 'Darwin' ]]; then
     appendIfMissing "${repo}"/configs/osx/.shrc.aliases ~/.shrc
     appendIfMissing "${repo}"/configs/osx/.shrc.docker ~/.shrc
-    appendIfMissing "${repo}"/configs/osx/.shrc.tmux ~/.shrc
     appendIfMissing "${repo}"/configs/osx/.shrc.typeform ~/.shrc
     appendIfMissing "${repo}"/configs/osx/.bash_profile ~/.bash_profile
 elif [[ "$(uname)" == 'Linux' ]]; then
