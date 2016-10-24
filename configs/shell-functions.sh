@@ -30,8 +30,13 @@ appendIfMissing(){
     python "${repo}"/configs/appendIfMissing.py "${1}" "${2}"
 }
 
+putOnPath() {
+    name=$(basename $1)
+    [[ -x "$1" ]] && sudo ln -s $(realpath $1) /usr/local/bin/${name} || echo '[ERROR] file is not executable'
+}
 
-    
+
+
 
 
 
