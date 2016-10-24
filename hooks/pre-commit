@@ -1,19 +1,24 @@
 #!/bin/bash
-source ./common/configs/.shell-functions
+[[ -z $repo ]] && repo=$(cd $(dirname $BASH_SOURCE[0]) && cd .. && pwd)
 
-appendIfMissing ./common/configs/.gitignore_global ~/.gitignore_global
-appendIfMissing ./common/configs/.bashrc ~/.bashrc
-appendIfMissing ./common/configs/.zshrc ~/.zshrc
+. "${repo}"/configs/shell-functions.sh
 
-appendIfMissing ./common/configs/.shrc.aliases ~/.shrc
-appendIfMissing ./common/configs/.shrc.keys ~/.shrc
-appendIfMissing ./common/configs/.shrc.gopath ~/.shrc
+appendIfMissing "${repo}"/configs/.gitignore_global ~/.gitignore_global
+appendIfMissing "${repo}"/configs/.tmux.conf ~/.tmux.conf
+appendIfMissing "${repo}"/configs/.bashrc ~/.bashrc
+appendIfMissing "${repo}"/configs/.zshrc ~/.zshrc
+
+appendIfMissing "${repo}"/configs/shell-functions.sh ~/.shrc
+appendIfMissing "${repo}"/configs/.shrc.aliases ~/.shrc
+appendIfMissing "${repo}"/configs/.shrc.keys ~/.shrc
+appendIfMissing "${repo}"/configs/.shrc.gopath ~/.shrc
 
 if [[ "$(uname)" == 'Darwin' ]]; then
-    appendIfMissing ./osx/configs/.shrc.aliases ~/.shrc
-    appendIfMissing ./osx/configs/.shrc.docker ~/.shrc
-    appendIfMissing ./osx/configs/.shrc.typeform ~/.shrc
-    appendIfMissing ./osx/configs/.bash_profile ~/.bash_profile
+    appendIfMissing "${repo}"/configs/osx/.shrc.aliases ~/.shrc
+    appendIfMissing "${repo}"/configs/osx/.shrc.docker ~/.shrc
+    appendIfMissing "${repo}"/configs/osx/.shrc.tmux ~/.shrc
+    appendIfMissing "${repo}"/configs/osx/.shrc.typeform ~/.shrc
+    appendIfMissing "${repo}"/configs/osx/.bash_profile ~/.bash_profile
 elif [[ "$(uname)" == 'Linux' ]]; then
     echo 'Linux'
 fi
