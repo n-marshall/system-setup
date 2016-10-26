@@ -23,9 +23,9 @@ xbindkeys -f ~/.xbindkeysrc
 # theme
 sudo apt-get install -y unity-tweak-tool
 
-sudo add-apt-repository ppa:noobslab/themes
+sudo add-apt-repository -y ppa:noobslab/themes
 sudo apt-get update
-sudo apt-get install arc-theme
+sudo apt-get install -y arc-theme
 
 
 # aliases
