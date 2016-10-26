@@ -6,5 +6,5 @@
     "go.formatOnSave": true,
     "go.formatTool": "goreturns",
     "go.goroot": "/usr/local/go",
-    "go.gopath": "/home/me/dev/.gopath:/home/me/dev/go",
+    "go.gopath": "/home/me/dev/.gopath:/home/me/dev/go"
 }
