@@ -11,6 +11,7 @@ cd ~
 wget "https://storage.googleapis.com/golang/go${GOLANG_LATEST}.linux-amd64.tar.gz" #replace with any newer version of go
 sudo tar -C /usr/local -xzf "go${GOLANG_LATEST}.linux-amd64.tar.gz"
 rm "go${GOLANG_LATEST}.linux-amd64.tar.gz"
+appendIfMissing "${repo}"/configs/.shrc.gopath ~/.shrc
 
 # java
 sudo add-apt-repository -y ppa:webupd8team/java
