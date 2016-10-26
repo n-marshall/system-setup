@@ -1,3 +1,8 @@
+#!/bin/bash
+[[ -z $repo ]] && repo=$(cd $(dirname $BASH_SOURCE[0]) && cd ../.. && pwd)
+
+. "${repo}"/configs/shell-functions.sh
+
 # python-pip
 sudo apt-get install -y python-pip
 
