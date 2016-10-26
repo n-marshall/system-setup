@@ -1,0 +1,10 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "go.lintOnSave": true,
+    "go.vetOnSave": true,
+    "go.lintTool": "golint",
+    "go.formatOnSave": true,
+    "go.formatTool": "goreturns",
+    "go.goroot": "/usr/local/go",
+    "go.gopath": "/home/me/dev/.gopath:/home/me/dev/go",
+}
