@@ -2,6 +2,7 @@
 [[ -z $repo ]] && repo=$(cd $(dirname $BASH_SOURCE[0]) && cd .. && pwd)
 
 . "${repo}"/configs/shell-functions.sh
+> ~/.shrc
 
 appendIfMissing "${repo}"/configs/.gitignore_global ~/.gitignore_global
 appendIfMissing "${repo}"/configs/.bashrc ~/.bashrc
