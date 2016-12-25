@@ -15,3 +15,9 @@ sudo apt install -y docker.io
 wgetAndDpkg "https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb"
 ## otto / azk
 wget -nv http://azk.io/install.sh -O- -t 2 -T 10 | sh
+
+# wine
+sudo dpkg --add-architecture i386 
+sudo add-apt-repository -y ppa:wine/wine-builds
+sudo apt-get update
+sudo apt-get install -y --install-recommends winehq-devel
