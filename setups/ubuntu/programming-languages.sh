@@ -24,7 +24,12 @@ sudo apt-get update
 sudo apt-get install -y oracle-java7-installer oracle-java7-set-default
 
 # nodejs
-curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
-sudo apt-get install -y nodejs
+## install nvm
 sudo apt-get install -y build-essential
-## webpack /broccoli /brunch
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+## load nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+## install nodejs
+nvm install node
+## js tooling
