@@ -10,7 +10,8 @@ sudo systemctl daemon-reload
 sudo systemctl enable onboot.service
 
 # xmodmap
-appendIfMissing "${repo}"/configs/ubuntu/.Xmodmap ~/.Xmodmap
+appendIfMissing "${repo}"/configs/ubuntu/.xmodmap ~/.xmodmap
+appendIfMissing "${repo}"/configs/ubuntu/.xinitrc ~/.xinitrc
 
 #xbindkeys
 sudo apt-get -y install xbindkeys xvkbd
