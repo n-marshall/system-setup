@@ -19,7 +19,7 @@ if [[ "$(uname)" == 'Darwin' ]]; then
     appendIfMissing "${repo}"/configs/osx/.shrc.typeform ~/.shrc
     appendIfMissing "${repo}"/configs/osx/.bash_profile ~/.bash_profile
 elif [[ "$(uname)" == 'Linux' ]]; then
-    echo 'Linux'
+    appendIfMissing "${repo}"/configs/ubuntu/.shrc.aliases ~/.shrc
     appendIfMissing "${repo}"/configs/ubuntu/.xbindkeysrc ~/.xbindkeysrc
     appendIfMissing "${repo}"/configs/ubuntu/.Xmodmap ~/.Xmodmap
 fi
