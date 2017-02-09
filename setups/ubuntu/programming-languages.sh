@@ -33,3 +33,14 @@ export NVM_DIR="$HOME/.nvm"
 ## install nodejs
 nvm install node
 ## js tooling
+
+# scala
+SCALA_LATEST='2.12.1'
+URL="http://downloads.lightbend.com/scala/${SCALA_LATEST}/scala-${SCALA_LATEST}.tgz"
+INSTALL_DIR=/usr/local/share/scala-${SCALA_LATEST}
+getAndExtract ${URL} ${INSTALL_DIR}
+# TMPFILE=`mktemp`
+# wget "http://downloads.lightbend.com/scala/${SCALA_LATEST}/scala-${SCALA_LATEST}.tgz" -O ${TMPFILE}
+# sudo extract ${TMPFILE} /usr/local/share/scala-${SCALA_LATEST}
+# sudo tar -C /usr/local -xzf ${TMPFILE}
+# rm ${TMPFILE}
