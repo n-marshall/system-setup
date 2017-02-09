@@ -21,5 +21,6 @@ if [[ "$(uname)" == 'Darwin' ]]; then
 elif [[ "$(uname)" == 'Linux' ]]; then
     appendIfMissing "${repo}"/configs/ubuntu/.shrc.aliases ~/.shrc
     appendIfMissing "${repo}"/configs/ubuntu/.xbindkeysrc ~/.xbindkeysrc
-    appendIfMissing "${repo}"/configs/ubuntu/.Xmodmap ~/.Xmodmap
+    appendIfMissing "${repo}"/configs/ubuntu/.xmodmap ~/.xmodmap
+    appendIfMissing "${repo}"/configs/ubuntu/shell-functions.sh ~/.shrc
 fi
