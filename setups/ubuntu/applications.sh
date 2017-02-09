@@ -16,6 +16,7 @@ sudo update-alternatives --set x-www-browser /usr/bin/google-chrome-stable #appa
 wgetAndDpkg 'https://release.gitkraken.com/linux/gitkraken-amd64.deb'
 
 # android studio
+sudo apt-get install -y lib32z1 lib32ncurses5 lib32stdc++6
 sudo add-apt-repository -y ppa:paolorotolo/android-studio
 sudo apt-get update
 sudo apt-get install -y android-studio
@@ -83,3 +84,6 @@ sudo apt-get install -y gtk-redshift
 
 # xclip
 sudo apt-get install -y xclip
+
+# 7z
+sudo apt-get install -y p7zip-full
