@@ -6,7 +6,7 @@
 
 sudo apt-get install libappindicator1
 
-LATEST="0.4.4"
+LATEST="0.4.5"
 URL="https://github.com/saenzramiro/rambox/releases/download/${LATEST}/Rambox-${LATEST}-x64.zip"
 
 INSTALL_DIR=~/.local/share/rambox
