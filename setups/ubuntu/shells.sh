@@ -7,7 +7,7 @@
 sudo apt-get install -y zsh
 zsh --version
 chsh -s $(which zsh)
-sudo ln -sf /bin/zsh /bin/sh
+sudo ln -sf /bin/bash /bin/sh
 # oh-my-zsh
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ## source bashrc and profile
