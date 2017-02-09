@@ -11,6 +11,23 @@ wgetAndDpkg() {
 	rm $FILE
 }
 
+wgetAndExecute() {
+	URL=$1
+	FILE=`mktemp`
+	wget "$URL" -O $FILE
+    chmod +x $FILE
+    $FILE	
+	rm $FILE
+}
+
+wgetAndSh() {
+    URL=$1
+	FILE=`mktemp`
+	wget "$URL" -O $FILE
+    sh $FILE
+	rm $FILE
+}
+
 extract() {
     if [ -z "$1" ]; then
         echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
@@ -47,9 +64,18 @@ extract() {
 }
 
 getAndExtract() {
-    TMPDIR=`mktemp -d`
-    DEST=$2
-    wget --content-disposition $1 -P $TMPDIR
-    extract $TMPDIR/* $DEST
-    rm -rf $TMPDIR
+    DWN_DEST=`mktemp -d`
+    EXTRACT_DEST=`mktemp -d`
+    DEST=${2}
+    wget --content-disposition ${1} -P ${DWN_DEST}
+    for f in ${DWN_DEST}/* 
+    do
+        echo "extracting file ${f} into ${EXTRACT_DEST}..."
+        mkdir -p ${EXTRACT_DEST}
+        extract ${f} ${EXTRACT_DEST}
+    done
+    [[ -w ${DEST} ]] && needSU=1
+    echo ${needSU}
+    rm -rf ${DWN_DEST}
+    rm -rf ${EXTRACT_DEST}
 }
