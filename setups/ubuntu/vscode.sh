@@ -5,11 +5,13 @@
 
 # getAndUnzip 'https://az764295.vo.msecnd.net/public/0.10.1-release/VSCode-linux64.zip' ~/woohoo/vscode
 
-sudo add-apt-repository -y ppa:ubuntu-desktop/ubuntu-make
-sudo apt-get update
-sudo apt-get install -y ubuntu-make
+# sudo add-apt-repository -y ppa:ubuntu-desktop/ubuntu-make
+# sudo apt-get update
+# sudo apt-get install -y ubuntu-make
 
-umake ide visual-studio-code --accept-license ~/.local/share/vscode
+# umake ide visual-studio-code --accept-license ~/.local/share/vscode
+
+wgetAndDpkg https://az764295.vo.msecnd.net/stable/ee428b0eead68bf0fb99ab5fdc4439be227b6281/code_1.8.1-1482158209_amd64.deb
 
 # add to PATH
 sudo ln -s ~/.local/share/vscode/bin/code /usr/local/bin/code
@@ -22,4 +24,5 @@ code --install-extension lukehoban.Go
 code --install-extension AdamCaviness.theme-monokai-dark-soda
 
 # add configs
-appendIfMissing "${repo}"/configs/vscode.keybindings.json ~/.config/Code/User/keybindings.json 
+cp "${repo}"/configs/vscode.keybindings.json ~/.config/Code/User/keybindings.json 
+cp "${repo}"/configs/vscode.settings.json ~/.config/Code/User/settings.json
