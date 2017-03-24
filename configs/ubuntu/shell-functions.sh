@@ -93,3 +93,9 @@ newxp() {
     mkcd ~/dev/experiments/${dir}
     code .
 }
+
+newgoXP() {
+    dir=$(randstring8)
+    mkcd ~/dev/go/src/experiments/${dir}
+    code .
+}
