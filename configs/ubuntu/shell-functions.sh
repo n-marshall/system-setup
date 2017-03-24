@@ -3,6 +3,14 @@ mkcd () {
     cd $1
 }
 
+randstring32() {
+    cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1
+}
+
+randstring8() {
+    cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1
+}
+
 wgetAndDpkg() {
 	cd ~
 	URL=$1
@@ -78,4 +86,10 @@ getAndExtract() {
     echo ${needSU}
     rm -rf ${DWN_DEST}
     rm -rf ${EXTRACT_DEST}
+}
+
+newxp() {
+    dir=$(randstring8)
+    mkcd ~/dev/experiments/${dir}
+    code .
 }
